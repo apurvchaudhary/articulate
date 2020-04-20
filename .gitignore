@@ -1,0 +1,15 @@
+# ignore file formats
+*.pyc
+*.sqlite3
+*.DS_Store
+
+# ignore files
+celerybeat-schedule
+dump.rdb
+celerybeat.pid
+settings.py
+wsgi.py
+
+# ignore folders
+/.idea/
+static/
