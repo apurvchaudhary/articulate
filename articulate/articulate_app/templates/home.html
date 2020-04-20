@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+.dropdown-btn:hover {
+  color: white;
+}
+.dropdown-btn {
+  padding: 6px 8px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  border: none;
+  background: none;
+  color: #818181;
+  display: block;
+  cursor: pointer;
+  outline: none;
+}
+.dropdown-container {
+  display: none;
+  padding-left: 8px;
+}
+    h1.impact {
+  font-family: Impact, Charcoal, sans-serif;
+  color: #00802b;
+  background-color: #ccccff;
+  height: 22px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding-top:40px;
+  width: 100%;
+}
+th.impact {
+  font-family: Impact, Charcoal, sans-serif;
+  color: #003300;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,6);
+  transition: 0.3s;
+  width: 75%;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.9);
+}
+
+img {
+  border-radius: 2px 2px 0 0;
+}
+
+.container {
+  padding: 2px 16px;
+}
+body {
+  font-family: "Lato", sans-serif;
+  background-image: url({{MEDIA_URL}}/media/bg.jpg);
+  background-repeat: repeat;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.sidepanel  {
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #003300;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidepanel a:hover {
+  color: #f1f1f1;
+}
+
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  position: fixed;
+}
+
+.openbtn:hover {
+  background-color:#003300;
+}
+
+.active {
+  background-color: #003300;
+  color: white;
+}
+    </style>
+</head>
+<body>
+<div id="mySidepanel" class="sidepanel">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-chevron-circle-left"
+                                                                          aria-hidden="true"></i></a>
+    <a href="">Home</a>
+    <button class="dropdown-btn">Rating <i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <a href="{% url 'sort-rating' %}?type=1">high-low</a>
+        <a href="{% url 'sort-rating' %}?type=2">low-high</a>
+    </div>
+    <a href="{% url 'about' %}">About</a>
+</div>
+<h1 align="center" class="impact"> Rating & Reviews by Anirudh</h1>
+<button class="openbtn" onclick="openNav()">☰</button>
+<br><br><br>
+<center>
+    {% for article in data %}
+    <div class="card">
+        <img src="{{MEDIA_URL}}{{article.image_url}}" alt="Avatar" style="width:50%">
+        <div class="container">
+            <h4><b>Title : {{article.title}}</b></h4>
+            <p>IMDB Rating : {{article.imdb_rating}}/10</p>
+            <p>Mine Rating : {{article.rating}}/5 </p>
+                <span style="color:blue;">
+                <a href="{% url 'movie-page' %}?article_id={{article.id}}">
+          click for Detailed Review <i class="fa fa-spinner" aria-hidden="true"></i></a></span>
+        </div>
+    </div>
+    {% endfor %}
+</center>
+<script>
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "200px";
+}
+
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+}
+
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+
+
+
+
+
+</script>
+</body>
+</html>
