@@ -20,7 +20,7 @@ def get_about_page(request):
 
 
 def get_home_page(request):
-    articles = Article.objects.order_by("created_at")
+    articles = Article.objects.order_by("-created_at")
     article_serilizer = ArticleSerializer(articles, many=True)
     return render(request, template_name="home.html", context={"data" : article_serilizer.data})
 
@@ -35,11 +35,11 @@ def get_movie_page(request):
 def get_sorted_data(request):
     type = request.query_params.get("type")
     if type == "1":
-        articles = Article.objects.order_by("created_at", "-rating")
+        articles = Article.objects.order_by("-rating", "-created_at")
         article_serilizer = ArticleSerializer(articles, many=True)
         return render(request, template_name="home.html", context={"data": article_serilizer.data})
     elif type == "2":
-        articles = Article.objects.order_by("created_at", "rating")
+        articles = Article.objects.order_by("rating", "-created_at")
         article_serilizer = ArticleSerializer(articles, many=True)
         return render(request, template_name="home.html", context={"data": article_serilizer.data})
     else:
