@@ -30,16 +30,9 @@
   display: none;
   padding-left: 8px;
 }
-    h1.impact {
-    font-size:25px;
+th.impact {
   font-family: Impact, Charcoal, sans-serif;
-  color: #004d00;
-  background-color: #ff4d94;
-  height: 18px;
-  margin-top: 0;
-  margin-bottom: 15px;
-  padding-top:40px;
-  width: 100%;
+  color: #003300;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,6);
@@ -60,7 +53,6 @@ img {
 .container {
   padding: 2px 16px;
 }
-
 body {
   font-family: "Lato", sans-serif;
   background-color: #c6ecc6;
@@ -107,6 +99,7 @@ body {
   cursor: pointer;
   background-color: #111;
   color: white;
+  padding: 10px 15px;
   border: none;
   position: fixed;
 }
@@ -118,6 +111,52 @@ body {
 .active {
   background-color: #003300;
   color: white;
+}
+.header {
+  background-color: #ffb3b3;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 5px solid black;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #ff66a3;
+  border-top: 5px solid black;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
 }
     </style>
 </head>
@@ -134,7 +173,13 @@ body {
     <a href="{% url 'about' %}">About</a>
     <a href="{{MEDIA_URL}}/aniadmin/" target="_blank">Admin</a>
 </div>
-<h1 align="center" class="impact"> Rating & Reviews by Anirudh</h1>
+<div class="header">
+  <h2 style="border-style: inset;">Analysis of Underated</h2>
+  <p>Movies / Shortfilms / Series</p>
+</div>
+<div id="navbar">
+  <a>{{data.title}}</a>
+</div>
 <button class="openbtn" onclick="openNav()">☰</button>
 <br><br><br>
 <center>
@@ -142,20 +187,40 @@ body {
   <img src="{{MEDIA_URL}}{{data.image_url}}" alt="Avatar" style="width:50%">
   <div class="container">
       <h4><b>Title : {{data.title}}</b></h4>
-      <p style="color:blue;"><b>IMDB Rating : {{data.imdb_rating}}/10</b></p>
       <p style="color:blue;"><b>Mine Rating : {{data.rating}}/5</b></p>
+      <p style="color:blue;"><b>IMDB Rating : {{data.imdb_rating}}/10</b></p>
   </div>
 </div><br>
     Select Reading Background Color<br><br>
-    <button onclick="myFunction(color=1)"><span style="color:grey;">GREY</span></button>
-    <button onclick="myFunction(color=2)"><span style="color:yellow;">YELLOW</span></button>
-    <button onclick="myFunction(color=3)">WHITE</button>
-    <button onclick="myFunction(color=4)"><span style="color:blue;">BLUE</span></button><br><br>
+    <button onclick="myColorSelector(color=1)"><span style="color:grey;">GREY</span></button>
+    <button onclick="myColorSelector(color=2)"><span style="color:yellow;">YELLOW</span></button>
+    <button onclick="myColorSelector(color=3)">WHITE</button>
+    <button onclick="myColorSelector(color=4)"><span style="color:blue;">BLUE</span></button><br><br>
     <b>MY DETAILED REVIEW</b><br>
     <div id="box">{{data.review}}</div>
 </center>
 <script>
-function myFunction(color) {
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  }
+  else {
+    navbar.classList.remove("sticky");
+  }
+}
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "200px";
+}
+
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+}
+function myColorSelector(color) {
     if (color == 1){
   document.getElementById("box").style.backgroundColor = "#d1e0e0";}
     if (color == 2){
@@ -165,14 +230,6 @@ function myFunction(color) {
     if (color == 4){
   document.getElementById("box").style.backgroundColor = "#ccebff";}
 }
-function openNav() {
-  document.getElementById("mySidepanel").style.width = "200px";
-}
-
-function closeNav() {
-  document.getElementById("mySidepanel").style.width = "0";
-}
-
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
 for (i = 0; i < dropdown.length; i++) {
@@ -186,6 +243,7 @@ for (i = 0; i < dropdown.length; i++) {
   }
   });
 }
+
 </script>
 </body>
 </html>
