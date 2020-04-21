@@ -4,12 +4,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-div.box {
+#box {
   width: 60%;
   border: 2px solid black;
   padding: 50px;
   margin: 20px;
   overflow-wrap: break-word;
+  background-color:none;
 }
 .dropdown-btn:hover {
   color: white;
@@ -31,8 +32,8 @@ div.box {
 }
     h1.impact {
   font-family: Impact, Charcoal, sans-serif;
-  color: #00802b;
-  background-color: #ccccff;
+  color: #004d00;
+  background-color: #ff4d94;
   height: 22px;
   margin-top: 0;
   margin-bottom: 15px;
@@ -44,6 +45,7 @@ div.box {
   transition: 0.3s;
   width: 75%;
   border-radius: 5px;
+  background-color:#ffcce0;
 }
 
 .card:hover {
@@ -60,8 +62,7 @@ img {
 
 body {
   font-family: "Lato", sans-serif;
-  background-image: url({{MEDIA_URL}}/ani/media/bg.jpg);
-  background-repeat: repeat;
+  background-color: #c6ecc6;
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
@@ -144,10 +145,25 @@ body {
       <p style="color:blue;"><b>Mine Rating : {{data.rating}}/5</b></p>
   </div>
 </div><br>
-    <i class="fa fa-arrow-down" aria-hidden="true"></i> <b>MY DETAILED REVIEW
-    <div class="box">{{data.review}}</div></b>
+    Select Reading Background Color<br><br>
+    <button onclick="myFunction(color=1)"><span style="color:grey;">GREY</span></button>
+    <button onclick="myFunction(color=2)"><span style="color:yellow;">YELLOW</span></button>
+    <button onclick="myFunction(color=3)">WHITE</button>
+    <button onclick="myFunction(color=4)"><span style="color:blue;">BLUE</span></button><br><br>
+    <b>MY DETAILED REVIEW</b><br>
+    <div id="box">{{data.review}}</div>
 </center>
 <script>
+function myFunction(color) {
+    if (color == 1){
+  document.getElementById("box").style.backgroundColor = "#d1e0e0";}
+    if (color == 2){
+  document.getElementById("box").style.backgroundColor = "#ffffcc";}
+    if (color == 3){
+  document.getElementById("box").style.backgroundColor = "white";}
+    if (color == 4){
+  document.getElementById("box").style.backgroundColor = "#ccebff";}
+}
 function openNav() {
   document.getElementById("mySidepanel").style.width = "200px";
 }
