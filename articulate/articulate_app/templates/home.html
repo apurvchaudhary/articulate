@@ -23,6 +23,7 @@
   padding-left: 8px;
 }
 h1.impact {
+    font-size:30px;
   font-family: Impact, Charcoal, sans-serif;
   color: #004d00;
   background-color: #ff4d94;
@@ -135,7 +136,7 @@ body {
 <center>
     {% for article in data %}
     <div class="card">
-        <img src="{{MEDIA_URL}}{{article.image_url}}" alt="Avatar" style="width:50%">
+        <img src="{{MEDIA_URL}}{{article.image_url}}" alt="{{article.title}}" style="width:50%">
         <div class="container">
             <h4><b>Title : {{article.title}}</b></h4>
             <p>IMDB Rating : {{article.imdb_rating}}/10</p>
