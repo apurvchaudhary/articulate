@@ -49,10 +49,12 @@ th.impact {
 
 img {
   border-radius: 2px 2px 0 0;
+  padding-top:5px;
 }
 
 .container {
   padding: 2px 16px;
+  text-align: left;
 }
 body {
   font-family: "Lato", sans-serif;
@@ -188,8 +190,10 @@ body {
   <img src="{{MEDIA_URL}}{{data.image_url}}" alt="Avatar" style="width:50%">
   <div class="container">
       <h4><b>Title : {{data.title}}</b></h4>
-      <p style="color:blue;"><b>Mine Rating : {{data.rating}}/5</b></p>
-      <p style="color:blue;"><b>IMDB Rating : {{data.imdb_rating}}/10</b></p>
+      <p>Mine Rating : {{data.rating}}/5</p>
+      <p>IMDB Rating : {{data.imdb_rating}}/10</p>
+      <p>Type : {{data.type}}</p>
+      <p>Creatives : {{data.creatives}}</p>
   </div>
 </div><br>
     Select Reading Background Color<br><br>
