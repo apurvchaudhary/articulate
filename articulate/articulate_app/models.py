@@ -56,7 +56,6 @@ class Article(ModelBase):
     type = models.CharField(verbose_name="Type", max_length=50, choices=TYPE_CHOICE, default=0)
     creatives = models.CharField(verbose_name="Director/Creation/Youtuber", max_length=100, default="Not Mentioned")
     review = models.TextField(verbose_name="Review Text")
-    link_url = models.URLField(verbose_name="Trailer Normal Link", blank=True, null=True)
     embed_link = models.URLField(verbose_name="Trailer Embed Link", blank=True, null=True)
     image_url = models.FileField(verbose_name="Movie Poster", upload_to='uploaded_images/', validators=[validate_image],
                                  help_text='Maximum file size allowed is 80kb', unique=True)
