@@ -5,12 +5,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
 #box {
-  width: 60%;
+  width: 80%;
   border: 2px solid black;
-  padding: 50px;
+  padding: 10px;
   margin: 20px;
   overflow-wrap: break-word;
   background-color:none;
+  text-align:left;
 }
 .dropdown-btn:hover {
   color: white;
@@ -198,8 +199,26 @@ body {
     <button onclick="myColorSelector(color=4)"><span style="color:blue;">BLUE</span></button><br><br>
     <b>MY DETAILED REVIEW</b><br>
     <div id="box">{{data.review}}</div>
+    {% if data.embed_link %}
+    <center><button onclick="iframeFunction()" style="color:blue">Watch Trailer</button></center><br>
+    {% else %}
+    <b>No Trailer Available</b>
+    {% endif %}
 </center>
 <script>
+var iframeCount = 1
+function iframeFunction() {
+  var x = document.createElement("IFRAME");
+  x.style.paddingLeft="20px";
+  x.setAttribute("src", "{{data.embed_link}}");
+  x.setAttribute("height", "200");
+  x.setAttribute("width", "315");
+  x.setAttribute("frameborder", "0");
+  x.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture");
+  if (iframeCount == 1){
+  document.body.appendChild(x);
+  iframeCount++}
+}
 window.onscroll = function() {myFunction()};
 
 var navbar = document.getElementById("navbar");
