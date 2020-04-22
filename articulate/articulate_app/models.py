@@ -42,9 +42,19 @@ class Article(ModelBase):
     """
     Model to save article added by django default user
     """
+    TYPE_CHOICE = {
+        ("Series", "SERIES"),
+        ("Documentary", "DOCUMENTARY"),
+        ("Short Film", "SHORT FILM"),
+        ("Youtube", "YOUTUBE"),
+        ("Movie", "MOVIE"),
+        ("Album", "ALBUM"),
+    }
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     rating = models.FloatField(verbose_name="My Rating", validators=[validate_rating])
-    title = models.CharField(verbose_name="Movie Title", max_length=255)
+    title = models.CharField(verbose_name="Title", max_length=255)
+    type = models.CharField(verbose_name="Type", max_length=50, choices=TYPE_CHOICE, default=0)
+    creatives = models.CharField(verbose_name="Director/Creation/Youtuber", max_length=100, default="Not Mentioned")
     review = models.TextField(verbose_name="Review Text")
     link_url = models.URLField(verbose_name="Trailer Normal Link", blank=True, null=True)
     embed_link = models.URLField(verbose_name="Trailer Embed Link", blank=True, null=True)
