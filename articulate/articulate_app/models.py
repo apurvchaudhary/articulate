@@ -63,5 +63,13 @@ class Article(ModelBase):
 
     objects = Manager()
 
+    def save(self, *args, **kwargs):
+        if self.embed_link:
+            youtube_normal_link = self.embed_link.split("&")[0]
+            hash = youtube_normal_link.split("=")[1]
+            youtube_embed_url = "https://www.youtube.com/embed/" + hash
+            self.embed_link = youtube_embed_url
+            super(Article, self).save(*args, **kwargs)
+
     def __str__(self):
         return f"{self.title}"
