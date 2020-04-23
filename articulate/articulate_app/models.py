@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import Manager
+from django.core.cache import cache
 from django.contrib.auth.models import User
 
 from articulate_app.validators import validate_image, validate_rating, validate_imdb_rating
@@ -38,6 +39,7 @@ class Article(models.Model):
     def save(self, *args, **kwargs):
         if self.embed_link:
             self.embed_link = create_embed_link(link=self.embed_link)
+        cache.clear()
         super(Article, self).save(*args, **kwargs)
 
     def __str__(self):
