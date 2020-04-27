@@ -21,11 +21,12 @@ th.impact {
   color: #003300;
 }
 .card {
+  color: #e6b3cc;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,6);
   transition: 0.3s;
   width: 75%;
   border-radius: 5px;
-  background-color:#ffcce0;
+  background-color:#2f2fa2;
 }
 
 .card:hover {
@@ -43,7 +44,7 @@ img {
 }
 body {
   font-family: "Lato", sans-serif;
-  background-color: #c6ecc6;
+  background-color: #99738e;
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
@@ -56,10 +57,10 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #003300;
+  background-color: black;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
+  padding-top: 150px;
 }
 
 .sidepanel a {
@@ -93,34 +94,40 @@ body {
 }
 
 .openbtn:hover {
-  background-color:#003300;
+  background-color:#242582;
 }
 
 .active {
-  background-color: #003300;
+  background-color: black;
   color: white;
 }
 .header {
-  background-color: #ffb3b3;
+  background-color: #f64c72;
   padding: 20px;
   text-align: center;
-  border-bottom: 5px solid black;
+  border-top: 12px solid black;
+  border-bottom: 12px solid black;
+  color: #242582;
+  border-bottom-right-radius: 55px;
+  border-top-left-radius: 55px;
 }
 
 #navbar {
   overflow: hidden;
-  background-color: #ff66a3;
-  border-top: 5px solid black;
 }
 
 #navbar a {
-  float: left;
+  background-color: #553d67;
+  float: center;
   display: block;
-  color: #f2f2f2;
+  color: black;
+  font-style: italic;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  border-bottom-right-radius: 45px;
+  border-right: 15px solid black;
 }
 
 #navbar a:hover {
@@ -155,4 +162,5 @@ body {
   overflow-wrap: break-word;
   background-color:none;
   text-align:left;
+  border-bottom-right-radius: 25px;
 }

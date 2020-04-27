@@ -17,7 +17,7 @@
     <a href="{{MEDIA_URL}}/aniadmin/" target="_self">Admin</a>
 </div>
 <div class="header">
-  <h2 style="border-style: inset;">Analysis of Underated</h2>
+  <h2>Analysis of Underated</h2>
   <p>Movies / Shortfilms / Series</p>
 </div>
 <div id="navbar">
@@ -36,7 +36,7 @@
             <p>Type : {{article.type}}</p>
             <p>Creatives : {{article.creatives}}</p>
                 <span style="color:blue;">
-                <a href="{% url 'movie-page' %}?article_id={{article.id}}">
+                <a style="color:#f64c72" href="{% url 'movie-page' %}?article_id={{article.id}}">
           Click for Detailed Review</a></span>
             <p></p>
         </div>
