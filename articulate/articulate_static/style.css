@@ -145,15 +145,10 @@ body {
 }
 
 .sticky {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
 }
-
-.sticky + .content {
-  padding-top: 60px;
-}
-
 #box {
   width: 80%;
   border: 2px solid black;
