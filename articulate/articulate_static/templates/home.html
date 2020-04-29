@@ -2,11 +2,72 @@
 {% load static %}
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <style>
+.icon-bar {
+  position: fixed;
+  top: 70%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 8px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+.facebook {
+  background: #3B5998;
+  color: white;
+  border-top-right-radius: 6px;
+    width: 25px;
+  border-radius: 50%;
+}
+
+.github {
+  background: #202020;
+  color: black;
+  width: 25px;
+  border-radius: 50%;
+}
+
+.linkedin {
+  background: #007bb5;
+  color: white;
+  width: 25px;
+  border-radius: 50%;
+}
+.youtube {
+  background: #ff1a1a;
+  color: white;
+  width: 25px;
+  border-radius: 50%;
+}
+.instagram {
+  background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+  radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+  linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+  color: white;
+  width: 25px;
+  border-radius: 50%;
+}
+
+    </style>
 <body>
-<div id="mySidepanel" class="sidepanel">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+<div class="sidepanel" id="mySidepanel">
+    <a class="closebtn" href="javascript:void(0)" onclick="closeNav()">x</a>
     <a href="{% url 'home-page' %}">Home</a>
     <button class="dropdown-btn">Rating&#9660;</button>
     <div class="dropdown-container">
@@ -17,32 +78,39 @@
     <a href="{{MEDIA_URL}}/aniadmin/" target="_self">Admin</a>
 </div>
 <div class="header">
-  <h2>Analysis of Underated</h2>
-  <p>Movies / Shortfilms / Series</p>
+    <h2>Analysis of Underated</h2>
+    <p>Movies / Shortfilms / Series</p>
 </div>
 <div id="navbar">
-  <a>Rating & Review by Anirudh</a>
+    <a>Rating & Review by Anirudh</a>
 </div>
 <button class="openbtn" onclick="openNav()">☰</button>
-<br><br><br>
+<br><br>
 <center>
     {% for article in data %}
     <div class="card">
-        <img src="{{article.image}}" alt="{{article.title}}" style="width:50%">
         <div class="container">
+            <img alt="{{article.title}}" src="{{article.image}}">
             <h4><b>Title : {{article.title}}</b></h4>
             <p>Mine Rating : {{article.rating}}/5 </p>
             <p>IMDB Rating : {{article.imdb_rating}}/10</p>
             <p>Type : {{article.type}}</p>
             <p>Creatives : {{article.creatives}}</p>
-                <span style="color:blue;">
-                <a style="color:#f64c72" href="{% url 'movie-page' %}?article_id={{article.id}}">
-          Click for Detailed Review</a></span>
+                <a href="{% url 'movie-page' %}?article_id={{article.id}}">
+          Click for Detailed Review</a>
             <p></p>
         </div>
-    </div><br><br>
+    </div>
+    <br><br>
     {% endfor %}
 </center>
+<div class="icon-bar">
+    <a href="https://www.facebook.com/apurvchaudhary11293/" class="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="https://github.com/apurvchaudhary" class="github"><i class="fa fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/apurv-chaudhary-9b0b7372/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+    <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+</div>
 <script src="{% static 'jscript.js' %}"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="mySidepanel" class="sidepanel">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"></a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
     <a href="{% url 'home-page' %}">Home</a>
     <button class="dropdown-btn">Rating&#9660;</button>
     <div class="dropdown-container">
@@ -28,8 +28,8 @@
 <br><br><br>
 <center>
 <div class="card">
-  <img src="{{data.image}}" alt="{{data.title}}" style="width:50%">
   <div class="container">
+      <img class="w3-animate-right" src="{{data.image}}" alt="{{data.title}}">
       <h4><b>Title : {{data.title}}</b></h4>
       <p>Mine Rating : {{data.rating}}/5</p>
       <p>IMDB Rating : {{data.imdb_rating}}/10</p>

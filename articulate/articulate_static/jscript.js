@@ -12,7 +12,10 @@ function myFunction() {
   }
 }
 function openNav() {
-  document.getElementById("mySidepanel").style.width = "200px";
+  var element = document.getElementById("mySidepanel");
+  element.style.width = "200px";
+  element.style.borderTopRightRadius = "35px";
+  element.style.borderBottomRightRadius = "35px";
 }
 
 function closeNav() {
