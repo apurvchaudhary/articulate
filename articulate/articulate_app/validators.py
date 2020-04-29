@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 
 def validate_image(fieldfile_obj):
     filesize = fieldfile_obj.file.size
-    kb_limit = 80
+    kb_limit = 300
     if filesize > kb_limit*1024:
         raise ValidationError(f"Max file size is {kb_limit}kb")
 
