@@ -60,7 +60,8 @@ class MoviePageView(APIView):
         article_id = request.query_params.get("article_id")
         if article_id:
             if "article_id:" + article_id in cache:
-                return render(request, template_name="moviedetail.html", context={"data": cache.get("article_id:" + article_id)})
+                return render(request, template_name="moviedetail.html",
+                              context={"data": cache.get("article_id:" + article_id)})
             error, data = utils.get_movie_data(article_id)
             if error:
                 return response(data=error, code=status.HTTP_404_NOT_FOUND)

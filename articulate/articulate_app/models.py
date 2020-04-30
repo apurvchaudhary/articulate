@@ -28,9 +28,10 @@ class Article(models.Model):
                             help_text='default is Movie')
     creatives = models.CharField(verbose_name="Director/Creation/Youtuber", max_length=100, default="Not Mentioned")
     review = models.TextField(verbose_name="Review Text")
-    embed_link = models.URLField(verbose_name="Trailer Youtube Link", blank=True, null=True, help_text='Paste only youtube urls')
+    embed_link = models.URLField(verbose_name="Trailer Youtube Link", blank=True, null=True,
+                                 help_text='Paste only youtube urls')
     image = models.FileField(verbose_name="Movie Poster", validators=[validate_image],
-                                 help_text='Maximum file size allowed is 300kb', unique=True, null=True)
+                             help_text='Maximum file size allowed is 300kb', unique=True, null=True)
     imdb_rating = models.FloatField(verbose_name="IMDB Rating", validators=[validate_imdb_rating],
                                     help_text='Decimal 0.1 to 10.0')
 
