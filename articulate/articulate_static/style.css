@@ -186,7 +186,7 @@ a:hover {
 
 #myBar {
   width: 0%;
-  height: 12px;
-  background-color: black;
+  height: 10px;
+  background-color: grey;
   position: absolute;
 }

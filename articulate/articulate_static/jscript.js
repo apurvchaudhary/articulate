@@ -67,6 +67,7 @@ function move() {
     var id = setInterval(frame, 20);
     function frame() {
       if (width >= 100) {
+        elem.style.backgroundColor = "#ac3b61";
         clearInterval(id);
         progress = 0;
       } else {
