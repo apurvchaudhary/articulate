@@ -3,8 +3,8 @@
 <html>
 <head>
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
     <style>
 .icon-bar {
   position: fixed;
@@ -64,6 +64,7 @@
   border-radius: 50%;
 }
 
+
     </style>
 <body>
 <div class="sidepanel" id="mySidepanel">
@@ -96,8 +97,8 @@
             <p>IMDB Rating : {{article.imdb_rating}}/10</p>
             <p>Type : {{article.type}}</p>
             <p>Creatives : {{article.creatives}}</p>
-                <a href="{% url 'movie-page' %}?article_id={{article.id}}">
-          Click for Detailed Review</a>
+            <a href="{% url 'movie-page' %}?article_id={{article.id}}">
+                Click for Detailed Review</a>
             <p></p>
         </div>
     </div>
@@ -105,11 +106,11 @@
     {% endfor %}
 </center>
 <div class="icon-bar">
-    <a href="https://www.facebook.com/apurvchaudhary11293/" class="facebook"><i class="fa fa-facebook"></i></a>
-    <a href="https://github.com/apurvchaudhary" class="github"><i class="fa fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/apurv-chaudhary-9b0b7372/" class="linkedin"><i class="fa fa-linkedin"></i></a>
-    <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
-    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+    <a class="facebook" href="https://www.facebook.com/apurvchaudhary11293/"><i class="fa fa-facebook"></i></a>
+    <a class="github" href="https://github.com/apurvchaudhary"><i class="fa fa-github"></i></a>
+    <a class="linkedin" href="https://www.linkedin.com/in/apurv-chaudhary-9b0b7372/"><i class="fa fa-linkedin"></i></a>
+    <a class="youtube" href="#"><i class="fa fa-youtube"></i></a>
+    <a class="instagram" href="#"><i class="fa fa-instagram"></i></a>
 </div>
 <script src="{% static 'jscript.js' %}"></script>
 </body>

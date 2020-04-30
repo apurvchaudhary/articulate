@@ -2,12 +2,12 @@
 {% load static %}
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="mySidepanel" class="sidepanel">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+<div class="sidepanel" id="mySidepanel">
+    <a class="closebtn" href="javascript:void(0)" onclick="closeNav()">x</a>
     <a href="{% url 'home-page' %}">Home</a>
     <button class="dropdown-btn">Rating&#9660;</button>
     <div class="dropdown-container">
@@ -18,44 +18,56 @@
     <a href="{{MEDIA_URL}}/aniadmin/" target="_self">Admin</a>
 </div>
 <div class="header">
-  <h2>Analysis of Underated</h2>
-  <p>Movies / Shortfilms / Series</p>
+    <h2>Analysis of Underated</h2>
+    <p>Movies / Shortfilms / Series</p>
 </div>
 <div id="navbar">
-  <a>Introduction</a>
+    <a>Introduction</a>
 </div>
 <button class="openbtn" onclick="openNav()">☰</button>
 <br><br><br>
 <ul style="font-size:17px;">
     <li>
-        <span style="font-size:25px;">Hi Everyone </span>this platform will be used for sharing about web series and movies. Well I will not talk about the famous and
+        <span style="font-size:25px;">Hi Everyone </span>this platform will be used for sharing about web series and
+        movies. Well I will not talk about the famous and
         super hit movies or series
-    </li><br>
+    </li>
+    <br>
     <li>
         I will tell you about the underrated gems of cinema in different languages . My review ,rating and synopsis may
         help you judge about the multimedia. You can also give your feedback, view ,ratings etc.
-    </li><br>
+    </li>
+    <br>
     <li>
         I will try sharing about two movies and a web series daily . I know it's not that fancy but yes it may be a good
         use of quarantine time
-    </li><br>
+    </li>
+    <br>
     <li>
-        These rating & review are my personal opinions and does not claim any relevance to any person, place, religion or things.
-    </li><br>
+        These rating & review are my personal opinions and does not claim any relevance to any person, place, religion
+        or things.
+    </li>
+    <br>
     <li>
         If you like or love my reviews, kindly give feedback on my personal email.
-    </li><br>
+    </li>
+    <br>
     <li>
         This Project is solely developed as open source for which you can contribute on my github link mentioned below.
-    </li><br>
+    </li>
+    <br>
     <li>
-        For feedback & Suggestion on reviews kindly write on :  <b style="color:blue">anirudh001singh@gmail.com</b>
-    </li><br>
+        For feedback & Suggestion on reviews kindly write on : <b style="color:blue">anirudh001singh@gmail.com</b>
+    </li>
+    <br>
     <li>
         For feedback & Suggestion on website kindly contact on following :
         <ul><br>
-            <li>My github link : <b><a style="color:black;" href="https://github.com/apurvchaudhary" target="_blank">my github</a></b></li>
-            <li>My linkedin link : <b><a style="color:black;" href="https://www.linkedin.com/in/apurv-chaudhary-9b0b7372/" target="_blank">my linkedin</a></b></li>
+            <li>My github link : <b><a href="https://github.com/apurvchaudhary" style="color:black;" target="_blank">my
+                github</a></b></li>
+            <li>My linkedin link : <b><a href="https://www.linkedin.com/in/apurv-chaudhary-9b0b7372/"
+                                         style="color:black;" target="_blank">my
+                linkedin</a></b></li>
             <li>My email id : <b>apurv.sirohi@gmail.com</b></li>
         </ul>
     </li>
