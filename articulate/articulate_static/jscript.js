@@ -36,7 +36,6 @@ for (i = 0; i < dropdown.length; i++) {
   });
 }
 
-var iframeCount = 1
 function iframeFunction(embed_link) {
   var x = document.createElement("IFRAME");
   x.style.paddingLeft="20px";
@@ -45,9 +44,7 @@ function iframeFunction(embed_link) {
   x.setAttribute("width", "315");
   x.setAttribute("frameborder", "0");
   x.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture");
-  if (iframeCount == 1){
   document.body.appendChild(x);
-  iframeCount++}
 }
 
 function myColorSelector(color) {
@@ -59,4 +56,32 @@ function myColorSelector(color) {
   document.getElementById("box").style.backgroundColor = "white";}
     if (color == 4){
   document.getElementById("box").style.backgroundColor = "#ccebff";}
+}
+
+var progress = 0;
+function move() {
+  if (progress == 0) {
+    progress = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 20);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        progress = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+      }
+    }
+  }
+}
+
+var triggerCount = 1;
+function trigger(embed_link) {
+    if (triggerCount == 1) {
+    move();
+    iframeFunction(embed_link);
+    triggerCount ++;
+    }
 }

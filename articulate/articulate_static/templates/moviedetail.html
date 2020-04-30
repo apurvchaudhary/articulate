@@ -48,9 +48,11 @@
     <div id="box">{{data.review}}</div>
     {% if data.embed_link %}
     <center>
-        <button onclick="iframeFunction('{{data.embed_link}}')" style="color:blue">Watch Trailer</button>
-    </center>
-    <br>
+        <button onclick="trigger('{{data.embed_link}}');" style="color:blue">Watch Trailer</button>
+    </center><br>
+    <div id="myProgress">
+            <div id="myBar"></div>
+        </div><br>
     {% else %}
     <b>No Trailer Available</b>
     {% endif %}

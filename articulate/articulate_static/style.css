@@ -178,3 +178,15 @@ a:hover {
         {right:1;}
     }
 }
+
+#myProgress {
+  width: 100%;
+  background-color: #ac3b61;
+}
+
+#myBar {
+  width: 0%;
+  height: 12px;
+  background-color: black;
+  position: absolute;
+}
