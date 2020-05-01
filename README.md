@@ -42,10 +42,13 @@ migrations : ~ python manage.py migrate
 create superuser : ~ python manage.py createsuperuser
 </li>
 <li>
-collect static files : ~ python manage.py collectstatic
+collect static files : ~ python manage.py collectstatic articulate_static
 </li>
 <li>
 all these setup has dependency on settings.py, contact for settings.
+</li>
+<li>
+Image upload default set to AWS s3 bucket i.e defined in settings.py
 </li>
 <li>
 finally run server : ~ python manage.py runserver
