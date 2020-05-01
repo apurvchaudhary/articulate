@@ -189,4 +189,6 @@ a:hover {
   height: 10px;
   background-color: grey;
   position: absolute;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
 }
