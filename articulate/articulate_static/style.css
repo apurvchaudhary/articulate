@@ -30,13 +30,16 @@
 }
 
 img {
-  border-radius: 20px/10px;
-  padding-top:50px;
+  padding-top: 0%;
+  border-radius: 10px/10px;
+  margin-top:12%;
   height: 100px;
   width: 70px;
   transition: width 1s, height 1s;
   right: 60px;
   position: absolute;
+  border: 1px solid black;
+  box-shadow: 2px 2px 1px 1px grey;
 }
 
 img:hover {
@@ -158,9 +161,6 @@ body {
   background-color:none;
   text-align:left;
   border-bottom-right-radius: 25px;
-}
-#box:hover {
- box-shadow: 5px 10px 5px 5px red;
 }
 a:link, a:visited {
     color : #ac3b61;
