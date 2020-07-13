@@ -10,7 +10,7 @@
     This is open source project and you are welcome to contribute.
     </li>
     <li>
-    project url : http://ec2-3-135-201-128.us-east-2.compute.amazonaws.com/ani/home/
+    project url : currently server down, not using as i have free tier instance only
     </li>
     <li>
     currently running on AWS ec2 with apache2 server
