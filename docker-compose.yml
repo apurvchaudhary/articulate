@@ -20,7 +20,7 @@ services:
       context: .
     restart: unless-stopped
     container_name: articulate_web
-    command: gunicorn articulate.wsgi:application --bind 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
     volumes:
@@ -31,7 +31,7 @@ services:
       DATABASE_NAME: test
       DATABASE_USER: test
       DATABASE_PASSWORD: test
-      DATABASE_HOST: localhost
+      DATABASE_HOST: db
       DATABASE_PORT: 3306
       DJANGO_SETTINGS_MODULE: articulate.settings
     networks:
