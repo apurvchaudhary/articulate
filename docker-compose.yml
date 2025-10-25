@@ -1,0 +1,54 @@
+services:
+  db:
+    image: mariadb:11.7
+    container_name: articulate_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - app-network
+
+  server:
+    build:
+      context: .
+    restart: unless-stopped
+    container_name: articulate_web
+    command: gunicorn articulate.wsgi:application --bind 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      DATABASE_NAME: test
+      DATABASE_USER: test
+      DATABASE_PASSWORD: test
+      DATABASE_HOST: localhost
+      DATABASE_PORT: 3306
+      DJANGO_SETTINGS_MODULE: articulate.settings
+    networks:
+      - app-network
+
+  adminer:
+    image: adminer
+    container_name: articulate_adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+volumes:
+  db_data:
+
+networks:
+  app-network:
+    driver: bridge
