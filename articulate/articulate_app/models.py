@@ -46,7 +46,7 @@ class Article(models.Model):
     imdb_rating = models.FloatField(
         verbose_name="IMDB Rating", validators=[validate_imdb_rating], help_text="Decimal 0.1 to 10.0"
     )
-    # Mariax vector field for semantic search
+    # mariax library derived vector field for semantic search
     embedding = VectorField(dim=768, null=True, blank=True)
 
     objects = Manager()

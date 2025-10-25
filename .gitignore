@@ -7,8 +7,6 @@
 celerybeat-schedule
 dump.rdb
 celerybeat.pid
-settings.py
-wsgi.py
 
 # ignore folders
 /.idea/
