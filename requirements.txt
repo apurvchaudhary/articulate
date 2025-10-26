@@ -3,4 +3,4 @@ djangorestframework==3.16.1
 mysqlclient==2.2.7
 sentence-transformers==5.1.2
 # added our custom library
-mariax==1.0.2
+mariax==1.1

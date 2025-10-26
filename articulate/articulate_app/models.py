@@ -1,13 +1,12 @@
 from django.contrib.auth.models import User
 from django.core.cache import cache
 from django.db import models
-from django.db.models import Manager
+# mariax library field
+from mariax.django_integration.fields import VectorField
+from mariax.django_integration.managers import VectorQuerySet
 
 from articulate_app.service import create_embed_link
 from articulate_app.validators import validate_image, validate_rating, validate_imdb_rating
-
-# mariax library field
-from mariax.django_integration.fields import VectorField
 
 
 class Article(models.Model):
@@ -48,8 +47,8 @@ class Article(models.Model):
     )
     # mariax library derived vector field for semantic search
     embedding = VectorField(dim=768, null=True, blank=True)
-
-    objects = Manager()
+    # mariax library derived manager
+    objects = VectorQuerySet.as_manager()
 
     def save(self, *args, **kwargs):
         if self.embed_link:

@@ -6,7 +6,6 @@ from django.utils.safestring import mark_safe
 from sentence_transformers import SentenceTransformer
 
 from articulate_app.models import Article
-from mariax.vector import to_db_text
 
 admin.site.unregister([Group, User])
 admin.site.site_header = "Articulate by apurvChaudhary"
@@ -21,13 +20,13 @@ class ArticleAdmin(admin.ModelAdmin):
 
     def get_urls(self):
         urls = super().get_urls()
-        custom_urls = [
-            path('generate_all_embeddings/', self.admin_site.admin_view(self.generate_all_embeddings))
-        ]
+        custom_urls = [path("generate_all_embeddings/", self.admin_site.admin_view(self.generate_all_embeddings))]
         return custom_urls + urls
 
     def generate_embeddings_button(self, obj=None):
-        return mark_safe('<a class="button" href="/admin/articulate_app/article/generate_all_embeddings/">Generate Embeddings</a>')
+        return mark_safe(
+            '<a class="button" href="/admin/articulate_app/article/generate_all_embeddings/">Generate Embeddings</a>'
+        )
 
     generate_embeddings_button.short_description = "Generate Embeddings"
     generate_embeddings_button.allow_tags = True
