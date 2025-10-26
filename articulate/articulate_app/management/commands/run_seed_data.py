@@ -10,7 +10,21 @@ class Command(BaseCommand):
     help = "Seed 6 Article objects with simple titles/reviews. Idempotent: skips existing (same user+title)."
 
     def handle(self, *args, **options):
-        user = get_user_model().objects.order_by("id").first()
+        _user = get_user_model()
+        username, email, password = "admin", "admin@example.com", "admin1234"
+        user, created = _user.objects.get_or_create(
+            username=username,
+            defaults={"email": email}
+        )
+        if created:
+            user.set_password(password)
+            user.is_superuser = True
+            user.is_staff = True
+            user.save()
+            self.stdout.write(self.style.SUCCESS(f"Superuser Created: {username}"))
+        else:
+            self.stdout.write(self.style.SUCCESS(f"Superuser '{username}' already exists."))
+
         if user is None:
             raise CommandError("No users found. Please create a user before running this command.")
 
