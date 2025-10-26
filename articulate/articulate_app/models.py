@@ -39,7 +39,6 @@ class Article(models.Model):
         verbose_name="Movie Poster",
         validators=[validate_image],
         help_text="Maximum file size allowed is 300kb",
-        unique=True,
         null=True,
     )
     imdb_rating = models.FloatField(
