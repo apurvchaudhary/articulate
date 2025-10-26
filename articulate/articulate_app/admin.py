@@ -9,7 +9,7 @@ from articulate_app.models import Article
 
 admin.site.unregister([Group, User])
 admin.site.site_header = "Articulate by apurvChaudhary"
-admin.site.site_url = ""
+admin.site.site_url = "/"
 
 model = SentenceTransformer("all-mpnet-base-v2")
 

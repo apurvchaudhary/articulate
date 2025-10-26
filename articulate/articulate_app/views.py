@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.core.cache import cache
-from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.shortcuts import render
 from django.views.decorators.cache import cache_page
 from rest_framework import status
@@ -10,7 +9,7 @@ from rest_framework.views import APIView
 
 from articulate_app import utils
 
-CACHE_TTL = getattr(settings, "CACHE_TTL", DEFAULT_TIMEOUT)
+CACHE_TTL = getattr(settings, "CACHE_TTL", 300)
 
 
 def response(data, code=status.HTTP_200_OK):
