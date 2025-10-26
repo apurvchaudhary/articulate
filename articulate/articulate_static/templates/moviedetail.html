@@ -61,6 +61,26 @@
     {% else %}
     <b>No Trailer Available</b>
     {% endif %}
+
+    {% if related %}
+    <br><br>
+    <b>You might also like</b><br><br>
+    {% for article in related %}
+    <div class="card">
+        <div class="container">
+            <img alt="{{article.title}}" src="{{article.image}}">
+            <h4><b>Title : {{article.title}}</b></h4>
+            <p>Mine Rating : {{article.rating}}/5 </p>
+            <p>IMDB Rating : {{article.imdb_rating}}/10</p>
+            <p>Type : {{article.type}}</p>
+            <p>Creatives : {{article.creatives}}</p>
+            <a href="{% url 'movie-page' %}?article_id={{article.id}}">Click for Detailed Review</a>
+            <p></p>
+        </div>
+    </div>
+    <br><br>
+    {% endfor %}
+    {% endif %}
 </center>
 <script src="{% static 'jscript.js' %}"></script>
 </body>

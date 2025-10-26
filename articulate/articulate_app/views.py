@@ -58,13 +58,16 @@ class MoviePageView(APIView):
     def get(self, request):
         article_id = request.query_params.get("article_id")
         if article_id:
-            if "article_id:" + article_id in cache:
-                return render(
-                    request, template_name="moviedetail.html", context={"data": cache.get("article_id:" + article_id)}
-                )
+            cache_key = "article_id:" + article_id
+            if cache_key in cache:
+                # cache contains full context (data + related)
+                return render(request, template_name="moviedetail.html", context=cache.get(cache_key))
             error, data = utils.get_movie_data(article_id)
             if error:
                 return response(data=error, code=status.HTTP_404_NOT_FOUND)
-            cache.set("article_id" + article_id, data)
-            return render(request, template_name="moviedetail.html", context={"data": data})
+            # Get related articles using semantic similarity
+            related = utils.get_related_articles(int(article_id), top_k=2)
+            context = {"data": data, "related": related}
+            cache.set(cache_key, context)
+            return render(request, template_name="moviedetail.html", context=context)
         return response("No article_id provided", status.HTTP_400_BAD_REQUEST)
