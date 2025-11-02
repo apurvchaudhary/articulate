@@ -1,8 +1,9 @@
 #!/bin/sh
 
 # Wait for DB
-echo "Waiting for database..."
-while ! nc -z db 3306; do
+echo "Waiting for database at $DATABASE_HOST:$DATABASE_PORT..."
+until nc -z "$DATABASE_HOST" "$DATABASE_PORT"; do
+  echo "Database not ready yet..."
   sleep 1
 done
 

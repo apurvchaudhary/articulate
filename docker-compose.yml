@@ -12,7 +12,7 @@ services:
       DATABASE_NAME: test
       DATABASE_USER: test
       DATABASE_PASSWORD: test
-      DATABASE_HOST: https://mariax-art-mariadb.onrender.com
+      DATABASE_HOST: mariax-art-mariadb.onrender.com
       DATABASE_PORT: 3306
       DJANGO_SETTINGS_MODULE: articulate.settings
     networks:
