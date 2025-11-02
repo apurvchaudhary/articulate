@@ -1,20 +1,4 @@
 services:
-  db:
-    image: mariadb:11.7
-    container_name: articulate_db
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: test
-      MYSQL_DATABASE: test
-      MYSQL_USER: test
-      MYSQL_PASSWORD: test
-    ports:
-      - "3306:3306"
-    volumes:
-      - db_data:/var/lib/mysql
-    networks:
-      - app-network
-
   server:
     build:
       context: .
@@ -24,21 +8,16 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
-    depends_on:
-      - db
     environment:
       DATABASE_NAME: test
       DATABASE_USER: test
       DATABASE_PASSWORD: test
-      DATABASE_HOST: db
+      DATABASE_HOST: https://mariax-art-mariadb.onrender.com
       DATABASE_PORT: 3306
       DJANGO_SETTINGS_MODULE: articulate.settings
     networks:
       - app-network
     entrypoint: ["/app/entrypoint.sh"]
-
-volumes:
-  db_data:
 
 networks:
   app-network:
